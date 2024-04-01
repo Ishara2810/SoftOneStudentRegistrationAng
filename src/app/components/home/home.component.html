@@ -1,0 +1,19 @@
+<!-- <div class="row">
+    <div class="col text-right">
+        <button mat-raised-button color="primary" class="float-right">Add Student(+)</button>
+    </div>
+</div> -->
+<!-- <div style="display: grid;grid-template-columns: 15% 500px 100px;">
+    <button mat-raised-button color="primary" class="example-icon" (click)="addStudent()">Add Student(+)</button>
+</div> -->
+<button mat-raised-button color="primary" class="right-corner-button" (click)="addStudent()">Add Student</button>
+<br /><br /><br />
+<div class="row">
+    <div class="col-md-8" [ngClass]="showRegistrationForm == true ? 'col-md-8' : 'col-md-12'">
+        <app-student-list (rowClickedEvent)="rowClickedEvent($event)"
+            [editCompleted]="editCompleted"></app-student-list>
+    </div>
+    <div class="col-md-4" *ngIf="showRegistrationForm">
+        <app-add-student [isEdit]="isEdit" (editCompleteEvent)="editCompleteEvent($event)"></app-add-student>
+    </div>
+</div>

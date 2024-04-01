@@ -1,0 +1,66 @@
+<form [formGroup]="studentForm" (ngSubmit)="SaveStudent()">
+    <mat-card>
+        <mat-card-header>
+            <h2>{{title}}</h2>
+            <button *ngIf="isEdit" mat-raised-button color="warn" (click)="delete()" style="margin-left: 40%;">
+                <mat-icon>delete</mat-icon>Delete
+            </button>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="avatar-container">
+                <!-- <div class="image-container" [ngStyle]="{backgroundImage: 'url(' + createImgPath(fileUrl) + ')'}">
+                </div> -->
+                <img class="image-container" [src]="createImgPath(fileUrl)">
+                <label for="avatar-input-file">
+                    <div class="icon-wrapper">
+                        <input type="file" id="avatar-input-file" accept="image/*" (change)="onFileChange($event)" />
+                        <mat-icon class="icon" fontIcon="edit"></mat-icon>
+                    </div>
+                </label>
+            </div>
+            <mat-form-field *ngIf="false">
+                <mat-label>Id</mat-label>
+                <input formControlName="id" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input formControlName="firstName" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input formControlName="lastName" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Mobile No</mat-label>
+                <input formControlName="mobileNo" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>NIC</mat-label>
+                <input formControlName="nic" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="dateOfBirth" formControlName="dateOfBirth">
+                <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+                <mat-datepicker #dateOfBirth>
+                    <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <textarea formControlName="address" matInput></textarea>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+            <button mat-raised-button (click)="closeForm()">Close</button>
+        </mat-card-actions>
+    </mat-card>
+</form>
